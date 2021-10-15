@@ -1,6 +1,6 @@
 // CLICK UPGRADES
 let people = 1
-let wisdom = 1
+let wisdom = 10000
 let teachCost = 5
 let peopleTaught = 0
 let bookCost = 50
@@ -8,6 +8,7 @@ let booksBought = 0
 
 // AUTO UPGRADES
 let auto = 1
+
 let libraryCost = 500
 let libraryBuilt = 0
 let collegeCost = 5000
@@ -107,11 +108,13 @@ function library() {
 
 // the fourth purchase, automated purchases
 function college() {
+  // debugger
   if (wisdom >= collegeCost) {
     wisdom -= collegeCost
     collegeCost *= 4
     collegeBuilt++
     auto += 500
+    document.getElementById('levelTwo').classList.remove('d-none')
     setStage()
     draw()
     console.log(collegeBuilt)
@@ -172,9 +175,20 @@ function collectAutoUpgrades() {
 
 // starts a timer 1 tick per second
 function startInterval() {
-  let collectionInterval = setInterval(collectAutoUpgrades, 1000)
+  let tick = 1000
+  let collectionInterval = setInterval(collectAutoUpgrades, tick)
   // call clearInterval(collectionInterval) if you want to cancel the timer 
+
+  // You could use tick as a modifier, have a purchase that reduces the tick interval for a period of time
+
 }
+
+// Supposed to prevent users from "hacking the game" with the console. Unsure if it would work.
+function consoleBlock() {
+  debugger
+}
+
+// consoleBlock()
 
 startInterval()
 draw()
