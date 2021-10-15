@@ -11,15 +11,23 @@ const teachText = document.getElementById('teach')
 const bookText = document.getElementById('book')
 
 
-//  TODO When a user purchases an upgrade, the price of the upgrade changes
-
 // TODO Users have at least 4 upgrades to purchase
 
+// TODO Users can purchase at least 1 automatic upgrade
 
 
+// interfaces values to the webpage
+function draw() {
+  wisdomText.innerText = `Wisdom: ${wisdom}`
+  peopleText.innerText = `Educated People: ${people}`
+  stageText.innerText = `Stage: ${stage}`
+  teachText.innerText = `Teach person: costs ${teachCost} Wisdom`
+  bookText.innerText = `Write book: costs ${bookCost} Wisdom`
 
+}
+
+// the clicker button, increases wisdom based on educated population
 function learn() {
-
   if (people == 1) {
     wisdom++
   } else {
@@ -30,15 +38,7 @@ function learn() {
   draw();
 }
 
-function draw() {
-  wisdomText.innerText = `Wisdom: ${wisdom}`
-  peopleText.innerText = `People: ${people}`
-  stageText.innerText = `Stage: ${stage}`
-  teachText.innerText = `Teach person: costs ${teachCost} Wisdom`
-  bookText.innerText = `Write book: costs ${bookCost} Wisdom`
-
-}
-
+// the first purchase, educates one person
 function teach() {
   console.log("teach");
   if (wisdom >= teachCost) {
@@ -53,6 +53,7 @@ function teach() {
   }
 }
 
+// the second purchase, educates ten people
 function book() {
   console.log("book");
   if (wisdom >= bookCost) {
@@ -67,9 +68,7 @@ function book() {
   }
 }
 
-
-
-
+// Changes the progress of civilization depending on how many people are educated
 function setStage() {
   if (people == 1) {
     stage = "Alone"
