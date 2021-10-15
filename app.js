@@ -76,3 +76,11 @@ function setStage() {
   }
   draw()
 }
+
+// function meaning() {
+//   if (stage == "Alone"){
+//     meaning = 
+//   }
+// }
+
+// Changes meaning of life depending on how many people are educated
