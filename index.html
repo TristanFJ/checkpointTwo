@@ -36,8 +36,9 @@
       <div class="row text-center">
 
         <div class="col-md-4 py-3 no-interact">
-          <h3>Each person earns one Wisdom on click.</h3>
-          <h3>Each book teaches ten people.</h3>
+          <h4>Each person earns one Wisdom on click.</h4>
+          <h4>Each book teaches ten people.</h4>
+          <h4>Each library generates 5 Wisdom a second.</h4>
         </div>
 
         <div class="col-md-4 mt-4">
@@ -46,7 +47,7 @@
         </div>
 
         <div class="col-md-4 py-3 no-interact">
-          <h3>Your stage grows with your population.</h3>
+          <h4>Your stage grows with your population.</h4>
         </div>
 
       </div>
@@ -62,6 +63,7 @@
 
         <div class="col-md-4 text-center mt-4 no-interact">
           <h2 id="wisdom">Wisdom: 1</h2>
+          <h2 id="auto">WPS: 0</h2>
         </div>
 
         <div class="col-md-4 text-center mt-4 no-interact">
@@ -80,20 +82,20 @@
 
 
         <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="teach()">
-          <h3 id="teach">Teach person: costs 5 Wisdom</h3>
+          <h3 id="teach">Teach person: costs 5 Wisdom. Taught: 0.</h3>
         </div>
 
 
         <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="book()">
-          <h3 id="book">Write book: costs 50 Wisdom</h3>
+          <h3 id="book">Write book: costs 50 Wisdom. Written: 0.</h3>
         </div>
 
-        <div class="col-md-2 text-center m-1 btn btn-secondary shadow">
-          <h3 id="">Build library: costs 500 Wisdom</h3>
+        <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="library()">
+          <h3 id="library">Build library: costs 500 Wisdom. Built: 0.</h3>
         </div>
 
-        <div class="col-md-2 text-center m-1 btn btn-secondary shadow">
-          <h3 id="">Build college: costs 5000 Wisdom</h3>
+        <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="college()">
+          <h3 id="college">Build college: costs 5000 Wisdom. Built: 0.</h3>
         </div>
 
         <div class="col-md-2 text-center " onclick="meet()">
