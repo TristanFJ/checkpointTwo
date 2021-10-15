@@ -1,8 +1,9 @@
 let people = 1
 let wisdom = 1
 let teachCost = 5
+let peopleTaught = 0
 let bookCost = 50
-
+let booksBought = 0
 
 let stage = "Alone"
 let meaning = ""
@@ -15,9 +16,14 @@ const bookText = document.getElementById('book')
 const meaningText = document.getElementById('meaning')
 
 
-// TODO Users have at least 4 upgrades to purchase
-
-// TODO Users can purchase at least 1 automatic upgrade
+/* TODO
+Users have at least 4 upgrades to purchase
+Users can see the quantity of each upgrade they have purchased
+Users can see the total amount of modification each upgrade provides
+Users can purchase at least 1 automatic upgrade
+Automatic upgrades are applied at least every 3 seconds
+Each Upgrade has different modifier values
+*/
 
 
 // interfaces values to the webpage
@@ -25,8 +31,8 @@ function draw() {
   wisdomText.innerText = `Wisdom: ${wisdom}`
   peopleText.innerText = `People: ${people}`
   stageText.innerText = `Stage: ${stage}`
-  teachText.innerText = `Teach person: costs ${teachCost} Wisdom`
-  bookText.innerText = `Write book: costs ${bookCost} Wisdom`
+  teachText.innerText = `Teach person: costs ${teachCost} Wisdom. Taught ${peopleTaught}.`
+  bookText.innerText = `Write book: costs ${bookCost} Wisdom. Written ${booksBought}.`
   meaningText.innerText = `Meaning of Life: ${meaning}`
 
 }
@@ -49,6 +55,7 @@ function teach() {
   if (wisdom >= teachCost) {
     wisdom -= teachCost
     teachCost *= 2
+    peopleTaught++
     people += 1
     setStage()
     draw()
@@ -65,6 +72,7 @@ function book() {
   if (wisdom >= bookCost) {
     wisdom -= bookCost
     bookCost *= 3
+    booksBought++
     people += 10
     setStage()
     draw()
