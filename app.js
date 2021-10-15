@@ -23,27 +23,20 @@ const teachText = document.getElementById('teach')
 const bookText = document.getElementById('book')
 const meaningText = document.getElementById('meaning')
 const libraryText = document.getElementById('library')
+const collegeText = document.getElementById('college')
 const autoText = document.getElementById('auto')
 
-/* TODO
-Users have at least 4 upgrades to purchase
-Users can see the quantity of each upgrade they have purchased
-Users can see the total amount of modification each upgrade provides
-Users can purchase at least 1 automatic upgrade
-Automatic upgrades are applied at least every 3 seconds
-Each Upgrade has different modifier values
-
-TODO hit basic requirements, then consider expanding into stretch goals, utilize dictionaries, use for-in loops to modify the dictionaries 
-*/
+// TODO hit basic requirements, then consider expanding into stretch goals, utilize dictionaries, use for-in loops to modify the dictionaries 
 
 // draws values to the webpage
 function draw() {
   wisdomText.innerText = `Wisdom: ${wisdom}`
   peopleText.innerText = `People: ${people}`
   stageText.innerText = `Stage: ${stage}`
-  teachText.innerText = `Teach person: costs ${teachCost} Wisdom. Taught: ${peopleTaught}.`
-  bookText.innerText = `Write book: costs ${bookCost} Wisdom. Written: ${booksBought}.`
-  libraryText.innerText = `Build library: costs ${libraryCost} Wisdom. Built: ${libraryBuilt}.`
+  teachText.innerText = `Teach person: 1 Wisdom per click, costs ${teachCost} Wisdom. Taught: ${peopleTaught}.`
+  bookText.innerText = `Write book: Teaches ten people, costs ${bookCost} Wisdom. Written: ${booksBought}.`
+  libraryText.innerText = `Build library: Earns 50 Wisdom per second, costs ${libraryCost} Wisdom. Built: ${libraryBuilt}.`
+  collegeText.innerText = `Build college: Earns 500 Wisdom per second, costs ${collegeCost} Wisdom. Built: ${collegeBuilt}.`
   meaningText.innerText = `Meaning of Life: ${meaning}`
   autoText.innerText = `WPS: ${auto}`
 
@@ -101,10 +94,27 @@ function library() {
     wisdom -= libraryCost
     libraryCost *= 4
     libraryBuilt++
-    auto += 5
+    auto += 50
     setStage()
     draw()
     console.log(libraryBuilt)
+  } else {
+    alert("earn more wisdom")
+  }
+  setMeaning()
+
+}
+
+// the fourth purchase, automated purchases
+function college() {
+  if (wisdom >= collegeCost) {
+    wisdom -= collegeCost
+    collegeCost *= 4
+    collegeBuilt++
+    auto += 500
+    setStage()
+    draw()
+    console.log(collegeBuilt)
   } else {
     alert("earn more wisdom")
   }
