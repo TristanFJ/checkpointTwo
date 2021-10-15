@@ -29,7 +29,7 @@ function meet() {
   if (wisdom >= 5) {
     wisdom -= 5
     people += 1
-    // stage()
+    setStage()
     draw()
     console.log(people)
   } else {
@@ -37,10 +37,12 @@ function meet() {
   }
 }
 
-// function stage() {
-//   if (people == 1) {
-//     stage = "alone"
-//   } else if (people == 2) {
-//     stage = "partnered"
-//   }
-// }
+
+function setStage() {
+  if (people == 1) {
+    stage = "Alone"
+  } else if (people == 2) {
+    stage = "Partnered"
+  }
+  draw()
+}
