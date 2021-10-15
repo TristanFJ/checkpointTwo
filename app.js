@@ -67,8 +67,12 @@ function setStage() {
     stage = "Partnered"
   } else if (people == 3) {
     stage = "Family"
-  } else if (people >= 12) {
+  } else if (people >= 12 && people <= 50) {
     stage = "Tribe"
+  } else if (people >= 51 && people <= 100) {
+    stage = "Town"
+  } else if (people >= 101 && people <= 500) {
+    stage = "City"
   }
   draw()
 }

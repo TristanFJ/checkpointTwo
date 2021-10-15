@@ -5,3 +5,8 @@ body {}
 .mdi-book-open-page-variant {
   font-size: 12rem;
 }
+
+.no-interact {
+  pointer-events: none;
+  user-select: none;
+}
