@@ -6,6 +6,13 @@ const peopleText = document.getElementById('people')
 const wisdomText = document.getElementById('wisdom')
 const stageText = document.getElementById('stage')
 
+//  TODO When a user purchases an upgrade, the price of the upgrade changes
+
+// TODO Users have at least 4 upgrades to purchase
+
+
+
+
 function learn() {
 
   if (people == 1) {
@@ -37,12 +44,31 @@ function meet() {
   }
 }
 
+function book() {
+  console.log("meet");
+  if (wisdom >= 50) {
+    wisdom -= 50
+    people += 10
+    setStage()
+    draw()
+    console.log(people)
+  } else {
+    alert("earn more wisdom")
+  }
+}
+
+
+
 
 function setStage() {
   if (people == 1) {
     stage = "Alone"
   } else if (people == 2) {
     stage = "Partnered"
+  } else if (people == 3) {
+    stage = "Family"
+  } else if (people >= 12) {
+    stage = "Tribe"
   }
   draw()
 }

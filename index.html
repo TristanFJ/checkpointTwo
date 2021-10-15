@@ -32,17 +32,22 @@
   <main>
 
 
-    <div class="container-fluid">
-      <div class="row">
+    <div class="container">
+      <div class="row text-center">
 
-        <div class="col-1"></div>
-        <div class="col-md-10 align-content-center text-center mt-4">
+        <div class="col-md-5 py-3">
+          <h3>Each person earns one Wisdom on click.<br> Each book teaches ten people.</h3>
+        </div>
 
+        <div class="col-md-2 mt-4">
           <button onclick="learn()" class="btn btn-sm btn-secondary"><i
               class="mdi mdi-book-open-page-variant"></i></button>
         </div>
 
-        <div class="col-1"></div>
+        <div class="col-md-5 py-3">
+          <h3>Your stage grows with your population.</h3>
+        </div>
+
       </div>
     </div>
 
@@ -66,24 +71,32 @@
     </div>
 
 
-    <div class="container my-5">
+    <div class="container-fluid my-5">
       <div class="row">
 
-        <div class="col-md-3 text-center mt- btn btn-secondary" onclick="meet()">
+        <div class="col-md-2 text-center" onclick="meet()">
+        </div>
+
+
+        <div class="col-md-2 text-center mx-1 btn btn-secondary" onclick="meet()">
           <h3 id="meet">Meet people: <br>costs 5 Wisdom</h3>
         </div>
 
 
-        <div class="col-md-3 text-center mt-4">
+        <div class="col-md-2 text-center mx-1 btn btn-secondary" onclick="book()">
+          <h3 id="library">Write book: <br> costs 50 Wisdom</h3>
+        </div>
+
+        <div class="col-md-2 text-center mx-1 btn btn-secondary">
           <h3 id="">Meet people</h3>
         </div>
 
-        <div class="col-md-3 text-center mt-4">
+        <div class="col-md-2 text-center mx-1 btn btn-secondary">
           <h3 id="">Meet people</h3>
         </div>
 
-        <div class="col-md-3 text-center mt-4">
-          <h3 id="">Meet people</h3>
+        <div class="col-md-2 text-center " onclick="meet()">
+          <h3 id=""></h3>
         </div>
 
 
