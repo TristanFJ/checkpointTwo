@@ -1,10 +1,15 @@
 let people = 1
 let wisdom = 1
+let teachCost = 5
+let bookCost = 50
 let stage = "Alone"
 
 const peopleText = document.getElementById('people')
 const wisdomText = document.getElementById('wisdom')
 const stageText = document.getElementById('stage')
+const teachText = document.getElementById('teach')
+const bookText = document.getElementById('book')
+
 
 //  TODO When a user purchases an upgrade, the price of the upgrade changes
 
@@ -29,12 +34,16 @@ function draw() {
   wisdomText.innerText = `Wisdom: ${wisdom}`
   peopleText.innerText = `People: ${people}`
   stageText.innerText = `Stage: ${stage}`
+  teachText.innerText = `Teach person: costs ${teachCost} Wisdom`
+  bookText.innerText = `Write book: costs ${bookCost} Wisdom`
+
 }
 
-function meet() {
-  console.log("meet");
-  if (wisdom >= 5) {
-    wisdom -= 5
+function teach() {
+  console.log("teach");
+  if (wisdom >= teachCost) {
+    wisdom -= teachCost
+    teachCost *= 2
     people += 1
     setStage()
     draw()
@@ -45,9 +54,10 @@ function meet() {
 }
 
 function book() {
-  console.log("meet");
-  if (wisdom >= 50) {
-    wisdom -= 50
+  console.log("book");
+  if (wisdom >= bookCost) {
+    wisdom -= bookCost
+    bookCost *= 2
     people += 10
     setStage()
     draw()
