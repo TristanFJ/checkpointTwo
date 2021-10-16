@@ -242,7 +242,7 @@ function setMeaning() {
     meaning = "form a stable government"
   } else if (stage == "Government") {
     meaning = "explore the stars"
-  } else if (stage == "Government") {
+  } else if (stage == "Space Faring") {
     meaning = "find the aliens"
   }
   draw()
