@@ -1,22 +1,33 @@
 // CLICK UPGRADES
 let people = 1
-let wisdom = 10000
+let wisdom = 100000
 let teachCost = 5
 let peopleTaught = 0
 let bookCost = 50
 let booksBought = 0
+let orbitalCost = 10000
+let orbitalsBuilt = 0
+let marsCost = 20000
+let marsBuilt = 0
+let dysonCost = 30000
+let dysonBuilt = 0
+let ftlCost = 50000
+let ftlBuilt = 0
+
 
 // AUTO UPGRADES
 let auto = 1
-
 let libraryCost = 500
 let libraryBuilt = 0
 let collegeCost = 5000
 let collegeBuilt = 0
 
+// STRINGS
 let stage = "Alone"
 let meaning = ""
 
+// GET ELEMENTS
+const autoText = document.getElementById('auto')
 const peopleText = document.getElementById('people')
 const wisdomText = document.getElementById('wisdom')
 const stageText = document.getElementById('stage')
@@ -25,22 +36,31 @@ const bookText = document.getElementById('book')
 const meaningText = document.getElementById('meaning')
 const libraryText = document.getElementById('library')
 const collegeText = document.getElementById('college')
-const autoText = document.getElementById('auto')
+const orbitalText = document.getElementById('orbital')
+const marsText = document.getElementById('mars')
+const dysonText = document.getElementById('dyson')
+const ftlText = document.getElementById('ftl')
 
-// TODO hit basic requirements, then consider expanding into stretch goals, utilize dictionaries, use for-in loops to modify the dictionaries 
+
+
+// TODO hit basic requirements, then consider expanding into stretch goals, utilize dictionaries, use for-in loops to modify the dictionary values
 
 // draws values to the webpage
 function draw() {
   wisdomText.innerText = `Wisdom: ${wisdom}`
   peopleText.innerText = `People: ${people}`
   stageText.innerText = `Stage: ${stage}`
-  teachText.innerText = `Teach person: 1 Wisdom per click, costs ${teachCost} Wisdom. Taught: ${peopleTaught}.`
-  bookText.innerText = `Write book: Teaches ten people, costs ${bookCost} Wisdom. Written: ${booksBought}.`
-  libraryText.innerText = `Build library: Earns 50 Wisdom per second, costs ${libraryCost} Wisdom. Built: ${libraryBuilt}.`
-  collegeText.innerText = `Build college: Earns 500 Wisdom per second, costs ${collegeCost} Wisdom. Built: ${collegeBuilt}.`
-  meaningText.innerText = `Meaning of Life: ${meaning}`
   autoText.innerText = `WPS: ${auto}`
+  meaningText.innerText = `Meaning of Life: ${meaning}`
 
+  teachText.innerText = `costs ${teachCost} Wisdom. Taught: ${peopleTaught}.`
+  bookText.innerText = `costs ${bookCost} Wisdom. Written: ${booksBought}.`
+  libraryText.innerText = `costs ${libraryCost} Wisdom. Built: ${libraryBuilt}.`
+  collegeText.innerText = `costs ${collegeCost} Wisdom. Built: ${collegeBuilt}.`
+  orbitalText.innerText = `costs ${orbitalCost} Wisdom. Built: ${orbitalsBuilt}.`
+  marsText.innerText = `costs ${marsCost} Wisdom. Built: ${marsBuilt}.`
+  dysonText.innerText = `costs ${dysonCost} Wisdom. Built: ${dysonBuilt}.`
+  ftlText.innerText = `costs ${ftlCost} Wisdom. Built: ${ftlBuilt}.`
 }
 
 // the clicker button, increases wisdom based on educated population
@@ -77,7 +97,7 @@ function book() {
   console.log("book");
   if (wisdom >= bookCost) {
     wisdom -= bookCost
-    bookCost *= 3
+    bookCost *= 2
     booksBought++
     people += 10
     setStage()
@@ -89,11 +109,11 @@ function book() {
   setMeaning()
 }
 
-// the third purchase, automated purchases
+// the third purchase, automates 50 wisdom
 function library() {
   if (wisdom >= libraryCost) {
     wisdom -= libraryCost
-    libraryCost *= 4
+    libraryCost *= 3
     libraryBuilt++
     auto += 50
     setStage()
@@ -106,12 +126,11 @@ function library() {
 
 }
 
-// the fourth purchase, automated purchases
+// the fourth purchase, automates 500 wisdom
 function college() {
-  // debugger
   if (wisdom >= collegeCost) {
     wisdom -= collegeCost
-    collegeCost *= 4
+    collegeCost *= 3
     collegeBuilt++
     auto += 500
     document.getElementById('levelTwo').classList.remove('d-none')
@@ -125,7 +144,66 @@ function college() {
 
 }
 
+function orbital() {
+  if (wisdom >= orbitalCost) {
+    wisdom -= orbitalCost
+    orbitalCost *= 2
+    orbitalsBuilt++
+    people += 100
+    setStage()
+    draw()
+  } else {
+    alert("earn more wisdom")
+  }
+  setMeaning()
+}
+
+function mars() {
+  if (wisdom >= marsCost) {
+    wisdom -= marsCost
+    marsCost *= 2
+    marsBuilt++
+    people += 300
+    setStage()
+    draw()
+  } else {
+    alert("earn more wisdom")
+  }
+  setMeaning()
+}
+
+
+function dyson() {
+  if (wisdom >= dysonCost) {
+    wisdom -= dysonCost
+    dysonCost *= 3
+    dysonBuilt++
+    auto += 1000
+    setStage()
+    draw()
+  } else {
+    alert("earn more wisdom")
+  }
+  setMeaning()
+}
+
+function ftl() {
+  if (wisdom >= ftlCost) {
+    wisdom -= ftlCost
+    ftlCost *= 3
+    ftlBuilt++
+    auto += 2000
+    setStage()
+    draw()
+  } else {
+    alert("earn more wisdom")
+  }
+  setMeaning()
+}
+
+
 // Changes the progress of civilization depending on how many people are educated
+
 function setStage() {
   if (people == 1) {
     stage = "Alone"
@@ -139,6 +217,10 @@ function setStage() {
     stage = "Town"
   } else if (people >= 101 && people <= 500) {
     stage = "City"
+  } else if (people >= 501 && people <= 1000) {
+    stage = "Government"
+  } else if (people >= 1000 && people <= 2000) {
+    stage = "Space Faring"
   }
   setMeaning()
   draw()
@@ -158,6 +240,10 @@ function setMeaning() {
     meaning = "establish council of elders"
   } else if (stage == "City") {
     meaning = "form a stable government"
+  } else if (stage == "Government") {
+    meaning = "explore the stars"
+  } else if (stage == "Government") {
+    meaning = "find the aliens"
   }
   draw()
 }
@@ -187,7 +273,6 @@ function startInterval() {
 function consoleBlock() {
   debugger
 }
-
 // consoleBlock()
 
 startInterval()

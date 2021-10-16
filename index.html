@@ -18,7 +18,7 @@
     <div class="container-fluid">
       <div class="row">
 
-        <div class="col align-content-center text-center bg-secondary p-5 mb-5">
+        <div class="col align-content-center text-center bg-secondary p-2">
 
           <h1 id="meaning" class="text-light no-interact">Meaning of Life: teach myself</h1>
         </div>
@@ -31,12 +31,31 @@
 
   <main>
 
+    <div class="container-fluid my-5">
+      <div class="row">
+
+        <div class="col-md-4 text-center no-interact">
+          <h2 id="people">People: 1</h2>
+        </div>
+
+
+        <div class="col-md-4 text-center no-interact">
+          <h2 id="wisdom">Wisdom: 1</h2>
+          <h2 id="auto">WPS: 0</h2>
+        </div>
+
+        <div class="col-md-4 text-center no-interact">
+          <h2 id="stage">Stage: Alone</h2>
+        </div>
+
+      </div>
+    </div>
 
     <div class="container">
       <div class="row text-center">
 
         <div class="col-md-4 py-3 no-interact">
-          <h4></h4>
+          <h4 id="seconds"></h4>
         </div>
 
         <div class="col-md-4 mt-4">
@@ -51,25 +70,6 @@
       </div>
     </div>
 
-    <div class="container-fluid my-5">
-      <div class="row">
-
-        <div class="col-md-4 text-center mt-4 no-interact">
-          <h2 id="people">People: 1</h2>
-        </div>
-
-
-        <div class="col-md-4 text-center mt-4 no-interact">
-          <h2 id="wisdom">Wisdom: 1</h2>
-          <h2 id="auto">WPS: 0</h2>
-        </div>
-
-        <div class="col-md-4 text-center mt-4 no-interact">
-          <h2 id="stage">Stage: Alone</h2>
-        </div>
-
-      </div>
-    </div>
 
 
     <div class="container-fluid my-5">
@@ -80,20 +80,24 @@
 
 
         <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="teach()">
-          <h4 id="teach">Teach person: 1 Wisdom per click, costs 5 Wisdom. Taught: 0.</h4>
+          <h5>Teach person: 1 Wisdom per click,</h5>
+          <h5 id="teach"> costs 5 Wisdom. Taught: 0.</h5>
         </div>
 
 
         <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="book()">
-          <h4 id="book">Write book: Teaches ten people, costs 50 Wisdom. Written: 0.</h4>
+          <h5>Write book: Teaches ten people, </h5>
+          <h5 id="book">costs 50 Wisdom. Written: 0.</h5>
         </div>
 
         <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="library()">
-          <h4 id="library">Build library: 50 wisdom per second, costs 500 Wisdom. Built: 0.</h4>
+          <h5>Build library: 50 Wisdom per second,</h5>
+          <h5 id="library"> costs 500 Wisdom. Built: 0.</h5>
         </div>
 
         <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="college()">
-          <h4 id="college">Build college: 500 Wisdom per second, costs 5000 Wisdom. Built: 0.</h4>
+          <h5>Build college: 500 Wisdom per second,</h5>
+          <h5 id="college"> costs 5000 Wisdom. Built: 0.</h5>
         </div>
 
 
@@ -107,20 +111,24 @@
           <h4 id=""></h4>
         </div>
 
-        <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="">
-          <h4 id="">test</h4>
+        <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="orbital()">
+          <h5>Construct Orbital Station: Teaches 100 people,</h5>
+          <h5 id="orbital">costs 10000 wisdom</h5>
         </div>
 
-        <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="">
-          <h4 id="">test</h4>
+        <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="mars()">
+          <h5>Colonize Mars: Teaches 300 people,</h5>
+          <h5 id="mars"></h5>
         </div>
 
-        <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="">
-          <h4 id="">test</h4>
+        <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="dyson()">
+          <h5>Build a Dyson Sphere: 1000 WPS,</h5>
+          <h5 id="dyson"></h5>
         </div>
 
-        <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="">
-          <h4 id="">test</h4>
+        <div class="col-md-2 text-center m-1 btn btn-secondary shadow" onclick="ftl()">
+          <h5>Faster Than Light Travel: 2000 WPS,</h5>
+          <h5 id="ftl"></h5>
         </div>
 
         <div class="col-md-2 text-center " onclick="">
