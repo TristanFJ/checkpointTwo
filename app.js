@@ -1,29 +1,33 @@
 // CLICK UPGRADES
-let people = 1
-let wisdom = 1
-let teachCost = 5
-let peopleTaught = 0
-let bookCost = 50
-let booksBought = 0
-let orbitalCost = 10000
-let orbitalsBuilt = 0
-let marsCost = 20000
-let marsBuilt = 0
-let dysonCost = 30000
-let dysonBuilt = 0
-let ftlCost = 50000
-let ftlBuilt = 0
+
+let people = Number(localStorage.getItem('People')) || 1;
+let wisdom = Number(localStorage.getItem('Wisdom')) || 1
+let teachCost = Number(localStorage.getItem('TeachCost')) || 5
+let peopleTaught = Number(localStorage.getItem('PeopleTaught')) || 0
+let bookCost = Number(localStorage.getItem('BookCost')) || 50
+let booksBought = Number(localStorage.getItem('BooksBought')) || 0
+let orbitalCost = Number(localStorage.getItem('OrbitalCost')) || 10000
+let orbitalsBuilt = Number(localStorage.getItem('OrbitalsBuilt')) || 0
+let marsCost = Number(localStorage.getItem('MarsCost')) || 20000
+let marsBuilt = Number(localStorage.getItem('MarsBuilt')) || 0
+let dysonCost = Number(localStorage.getItem('DysonCost')) || 30000
+let dysonBuilt = Number(localStorage.getItem('DysonBuilt')) || 0
+let ftlCost = Number(localStorage.getItem('FtlCost')) || 50000
+let ftlBuilt = Number(localStorage.getItem('FtlBuilt')) || 0
+
+// I definitely repeat myself in this program many times. I've tried writing functions to prevent that but I haven't had any working solutions. 
+// Similarly, I think I could implement local storage, but it would require repeating myself as I'm not sure how to do it well. 
 
 
 // AUTO UPGRADES
-let auto = 1
-let libraryCost = 500
-let libraryBuilt = 0
-let collegeCost = 5000
-let collegeBuilt = 0
+let auto = Number(localStorage.getItem('Auto')) || 1
+let libraryCost = Number(localStorage.getItem('LibraryCost')) || 500
+let libraryBuilt = Number(localStorage.getItem('LibraryBuilt')) || 0
+let collegeCost = Number(localStorage.getItem('CollegeCost')) || 5000
+let collegeBuilt = Number(localStorage.getItem('CollegeBuilt')) || 0
 
 // STRINGS
-let stage = "Alone"
+let stage = localStorage.getItem('Stage') || "Alone"
 let meaning = ""
 
 // GET ELEMENTS
@@ -121,7 +125,6 @@ function library() {
     alert("earn more wisdom")
   }
   setMeaning()
-
 }
 
 // the fourth purchase, automates 500 wisdom
@@ -139,7 +142,6 @@ function college() {
     alert("earn more wisdom")
   }
   setMeaning()
-
 }
 
 function orbital() {
@@ -246,7 +248,6 @@ function setMeaning() {
   draw()
 }
 
-// adds wisdom based on auto modifiers every second
 function collectAutoUpgrades() {
   console.log('tick');
   if (auto >= 1) {
@@ -255,6 +256,26 @@ function collectAutoUpgrades() {
   setStage()
   setMeaning()
   draw()
+  localStorage.setItem("People", people)
+  localStorage.setItem("Wisdom", wisdom)
+  localStorage.setItem("TeachCost", teachCost)
+  localStorage.setItem("PeopleTaught", peopleTaught)
+  localStorage.setItem("BookCost", bookCost)
+  localStorage.setItem("BooksBought", booksBought)
+  localStorage.setItem("OrbitalCost", orbitalCost)
+  localStorage.setItem("OrbitalsBuilt", orbitalsBuilt)
+  localStorage.setItem("MarsCost", marsCost)
+  localStorage.setItem("MarsBuilt", marsBuilt)
+  localStorage.setItem("DysonCost", dysonCost)
+  localStorage.setItem("DysonBuilt", dysonBuilt)
+  localStorage.setItem("FtlCost", ftlCost)
+  localStorage.setItem("FtlBuilt", ftlBuilt)
+  localStorage.setItem("Auto", auto)
+  localStorage.setItem("LibraryCost", libraryCost)
+  localStorage.setItem("LibraryBuilt", libraryBuilt)
+  localStorage.setItem("CollegeCost", collegeCost)
+  localStorage.setItem("CollegeBuilt", collegeBuilt)
+
 }
 
 // starts a timer 1 tick per second
@@ -264,7 +285,6 @@ function startInterval() {
   // call clearInterval(collectionInterval) if you want to cancel the timer 
 
   // You could use tick as a modifier, have a purchase that reduces the tick interval for a period of time
-
 }
 
 // Supposed to prevent users from "hacking the game" with the console. Unsure if it would work.
@@ -273,5 +293,12 @@ function consoleBlock() {
 }
 // consoleBlock()
 
+function checkLayerTwo() {
+  if (collegeBuilt >= 1) {
+    document.getElementById('levelTwo').classList.remove('d-none')
+  }
+}
+checkLayerTwo()
 startInterval()
 draw()
+setStage()
