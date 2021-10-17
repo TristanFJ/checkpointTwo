@@ -3,22 +3,27 @@ let people = 1
 let wisdom = 100000
 let teachCost = 5
 let peopleTaught = 0
+
 let bookCost = 50
 let booksBought = 0
+
 let orbitalCost = 10000
 let orbitalsBuilt = 0
+
 let marsCost = 20000
 let marsBuilt = 0
+
 let dysonCost = 30000
 let dysonBuilt = 0
+
 let ftlCost = 50000
 let ftlBuilt = 0
-
 
 // AUTO UPGRADES
 let auto = 1
 let libraryCost = 500
 let libraryBuilt = 0
+
 let collegeCost = 5000
 let collegeBuilt = 0
 
@@ -40,8 +45,6 @@ const orbitalText = document.getElementById('orbital')
 const marsText = document.getElementById('mars')
 const dysonText = document.getElementById('dyson')
 const ftlText = document.getElementById('ftl')
-
-
 
 // TODO hit basic requirements, then consider expanding into stretch goals, utilize dictionaries, use for-in loops to modify the dictionary values
 
@@ -123,7 +126,6 @@ function library() {
     alert("earn more wisdom")
   }
   setMeaning()
-
 }
 
 // the fourth purchase, automates 500 wisdom
@@ -141,7 +143,6 @@ function college() {
     alert("earn more wisdom")
   }
   setMeaning()
-
 }
 
 function orbital() {
