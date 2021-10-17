@@ -16,7 +16,7 @@ let marsBuilt = Number(localStorage.getItem('MarsBuilt')) || 0
 // Similarly, I think I could implement local storage, but it would require repeating myself as I'm not sure how to do it well. 
 
 // AUTO UPGRADES
-let auto = Number(localStorage.getItem('Auto')) || 1
+let auto = Number(localStorage.getItem('Auto')) || 0
 let libraryCost = Number(localStorage.getItem('LibraryCost')) || 500
 let libraryBuilt = Number(localStorage.getItem('LibraryBuilt')) || 0
 let collegeCost = Number(localStorage.getItem('CollegeCost')) || 5000
