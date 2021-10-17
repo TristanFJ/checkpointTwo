@@ -33,6 +33,11 @@ a:hover {
   user-select: none;
 }
 
+.learn-button {
+  /* trying to make it so double tap on mobile doesn't zoom */
+  touch-action: manipulation;
+}
+
 #meaning {
   font-family: 'Rampart One', cursive;
 }
