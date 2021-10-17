@@ -5,6 +5,16 @@ body {
   min-height: 100vh;
 }
 
+a {
+  color: hsl(0, 0%, 90%)
+}
+
+a:hover {
+  color: hsl(200, 100%, 80%)
+}
+
+
+
 .mdi-book-open-page-variant {
   font-size: 10rem;
 }
@@ -12,4 +22,24 @@ body {
 .no-interact {
   pointer-events: none;
   user-select: none;
+}
+
+#meaning {
+  font-family: 'Rampart One', cursive;
+}
+
+#wisdom {
+  font-family: 'Rampart One', cursive;
+}
+
+#people {
+  font-family: 'Rampart One', cursive;
+}
+
+#auto {
+  font-family: 'Rampart One', cursive;
+}
+
+#stage {
+  font-family: 'Rampart One', cursive;
 }

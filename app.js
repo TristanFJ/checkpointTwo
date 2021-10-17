@@ -1,6 +1,7 @@
 // CLICK UPGRADES
 
-let people = Number(localStorage.getItem('People')) || 1;
+// if variable exists in local storage, set variable to that value, if it doesn't exist in local storage then set variable to default number
+let people = Number(localStorage.getItem('People')) || 1
 let wisdom = Number(localStorage.getItem('Wisdom')) || 1
 let teachCost = Number(localStorage.getItem('TeachCost')) || 5
 let peopleTaught = Number(localStorage.getItem('PeopleTaught')) || 0
@@ -10,14 +11,9 @@ let orbitalCost = Number(localStorage.getItem('OrbitalCost')) || 10000
 let orbitalsBuilt = Number(localStorage.getItem('OrbitalsBuilt')) || 0
 let marsCost = Number(localStorage.getItem('MarsCost')) || 20000
 let marsBuilt = Number(localStorage.getItem('MarsBuilt')) || 0
-let dysonCost = Number(localStorage.getItem('DysonCost')) || 30000
-let dysonBuilt = Number(localStorage.getItem('DysonBuilt')) || 0
-let ftlCost = Number(localStorage.getItem('FtlCost')) || 50000
-let ftlBuilt = Number(localStorage.getItem('FtlBuilt')) || 0
 
 // I definitely repeat myself in this program many times. I've tried writing functions to prevent that but I haven't had any working solutions. 
 // Similarly, I think I could implement local storage, but it would require repeating myself as I'm not sure how to do it well. 
-
 
 // AUTO UPGRADES
 let auto = Number(localStorage.getItem('Auto')) || 1
@@ -25,6 +21,10 @@ let libraryCost = Number(localStorage.getItem('LibraryCost')) || 500
 let libraryBuilt = Number(localStorage.getItem('LibraryBuilt')) || 0
 let collegeCost = Number(localStorage.getItem('CollegeCost')) || 5000
 let collegeBuilt = Number(localStorage.getItem('CollegeBuilt')) || 0
+let dysonCost = Number(localStorage.getItem('DysonCost')) || 30000
+let dysonBuilt = Number(localStorage.getItem('DysonBuilt')) || 0
+let ftlCost = Number(localStorage.getItem('FtlCost')) || 50000
+let ftlBuilt = Number(localStorage.getItem('FtlBuilt')) || 0
 
 // STRINGS
 let stage = localStorage.getItem('Stage') || "Alone"
@@ -44,8 +44,6 @@ const orbitalText = document.getElementById('orbital')
 const marsText = document.getElementById('mars')
 const dysonText = document.getElementById('dyson')
 const ftlText = document.getElementById('ftl')
-
-
 
 // TODO hit basic requirements, then consider expanding into stretch goals, utilize dictionaries, use for-in loops to modify the dictionary values
 
@@ -144,6 +142,7 @@ function college() {
   setMeaning()
 }
 
+// fifth purchase teaches 100 people
 function orbital() {
   if (wisdom >= orbitalCost) {
     wisdom -= orbitalCost
@@ -158,6 +157,7 @@ function orbital() {
   setMeaning()
 }
 
+// sixth purchase teaches 300 people
 function mars() {
   if (wisdom >= marsCost) {
     wisdom -= marsCost
@@ -172,7 +172,7 @@ function mars() {
   setMeaning()
 }
 
-
+// seventh purchase automates 1000 wisdom
 function dyson() {
   if (wisdom >= dysonCost) {
     wisdom -= dysonCost
@@ -187,6 +187,7 @@ function dyson() {
   setMeaning()
 }
 
+// eighth purchase automates 2000 wisdom
 function ftl() {
   if (wisdom >= ftlCost) {
     wisdom -= ftlCost
@@ -200,7 +201,6 @@ function ftl() {
   }
   setMeaning()
 }
-
 
 // Changes the progress of civilization depending on how many people are educated
 
@@ -219,8 +219,12 @@ function setStage() {
     stage = "City"
   } else if (people >= 501 && people <= 1000) {
     stage = "Government"
-  } else if (people >= 1000 && people <= 2000) {
+  } else if (people >= 1001 && people <= 2500) {
     stage = "Space Faring"
+  } else if (people >= 2501 && people <= 5000) {
+    stage = "Found a strange signal"
+  } else if (people >= 5001) {
+    stage = "Learned from aliens"
   }
   setMeaning()
   draw()
@@ -244,18 +248,21 @@ function setMeaning() {
     meaning = "explore the stars"
   } else if (stage == "Space Faring") {
     meaning = "find the aliens"
+  } else if (stage == "Found a strange signal") {
+    meaning = "make contact with the alien life"
+  } else if (stage == "Learned from aliens") {
+    meaning = "spread the ancient message"
   }
   draw()
 }
 
+// every second, add auto to wisdom, save stats to local storage, update stage + meaning and draw all to screen
 function collectAutoUpgrades() {
   console.log('tick');
   if (auto >= 1) {
     wisdom += auto
   }
-  setStage()
-  setMeaning()
-  draw()
+
   localStorage.setItem("People", people)
   localStorage.setItem("Wisdom", wisdom)
   localStorage.setItem("TeachCost", teachCost)
@@ -276,6 +283,9 @@ function collectAutoUpgrades() {
   localStorage.setItem("CollegeCost", collegeCost)
   localStorage.setItem("CollegeBuilt", collegeBuilt)
 
+  setStage()
+  setMeaning()
+  draw()
 }
 
 // starts a timer 1 tick per second
@@ -298,6 +308,7 @@ function checkLayerTwo() {
     document.getElementById('levelTwo').classList.remove('d-none')
   }
 }
+
 checkLayerTwo()
 startInterval()
 draw()
