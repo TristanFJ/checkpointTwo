@@ -1,6 +1,6 @@
 // CLICK UPGRADES
 let people = 1
-let wisdom = 100000
+let wisdom = 1
 let teachCost = 5
 let peopleTaught = 0
 let bookCost = 50
