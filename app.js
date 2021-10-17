@@ -1,6 +1,7 @@
 // CLICK UPGRADES
 let people = 1
 let wisdom = 100000
+
 let teachCost = 5
 let peopleTaught = 0
 
@@ -13,19 +14,21 @@ let orbitalsBuilt = 0
 let marsCost = 20000
 let marsBuilt = 0
 
-let dysonCost = 30000
-let dysonBuilt = 0
-
-let ftlCost = 50000
-let ftlBuilt = 0
 
 // AUTO UPGRADES
 let auto = 1
+
 let libraryCost = 500
 let libraryBuilt = 0
 
 let collegeCost = 5000
 let collegeBuilt = 0
+
+let dysonCost = 30000
+let dysonBuilt = 0
+
+let ftlCost = 50000
+let ftlBuilt = 0
 
 // STRINGS
 let stage = "Alone"
@@ -46,6 +49,7 @@ const marsText = document.getElementById('mars')
 const dysonText = document.getElementById('dyson')
 const ftlText = document.getElementById('ftl')
 
+
 // TODO hit basic requirements, then consider expanding into stretch goals, utilize dictionaries, use for-in loops to modify the dictionary values
 
 // draws values to the webpage
@@ -55,7 +59,6 @@ function draw() {
   stageText.innerText = `Stage: ${stage}`
   autoText.innerText = `WPS: ${auto}`
   meaningText.innerText = `Meaning of Life: ${meaning}`
-
   teachText.innerText = `costs ${teachCost} Wisdom. Taught: ${peopleTaught}.`
   bookText.innerText = `costs ${bookCost} Wisdom. Written: ${booksBought}.`
   libraryText.innerText = `costs ${libraryCost} Wisdom. Built: ${libraryBuilt}.`
@@ -64,167 +67,6 @@ function draw() {
   marsText.innerText = `costs ${marsCost} Wisdom. Built: ${marsBuilt}.`
   dysonText.innerText = `costs ${dysonCost} Wisdom. Built: ${dysonBuilt}.`
   ftlText.innerText = `costs ${ftlCost} Wisdom. Built: ${ftlBuilt}.`
-}
-
-// the clicker button, increases wisdom based on educated population
-function learn() {
-  if (people == 1) {
-    wisdom++
-  } else {
-
-    wisdom += people;
-  }
-  draw();
-  setMeaning()
-}
-
-// the first purchase, educates one person
-function teach() {
-  console.log("teach");
-  if (wisdom >= teachCost) {
-    wisdom -= teachCost
-    teachCost *= 2
-    peopleTaught++
-    people += 1
-    setStage()
-    draw()
-    console.log(people)
-  } else {
-    alert("earn more wisdom")
-  }
-  setMeaning()
-}
-
-// the second purchase, educates ten people
-function book() {
-  console.log("book");
-  if (wisdom >= bookCost) {
-    wisdom -= bookCost
-    bookCost *= 2
-    booksBought++
-    people += 10
-    setStage()
-    draw()
-    console.log(people)
-  } else {
-    alert("earn more wisdom")
-  }
-  setMeaning()
-}
-
-// the third purchase, automates 50 wisdom
-function library() {
-  if (wisdom >= libraryCost) {
-    wisdom -= libraryCost
-    libraryCost *= 3
-    libraryBuilt++
-    auto += 50
-    setStage()
-    draw()
-    console.log(libraryBuilt)
-  } else {
-    alert("earn more wisdom")
-  }
-  setMeaning()
-}
-
-// the fourth purchase, automates 500 wisdom
-function college() {
-  if (wisdom >= collegeCost) {
-    wisdom -= collegeCost
-    collegeCost *= 3
-    collegeBuilt++
-    auto += 500
-    document.getElementById('levelTwo').classList.remove('d-none')
-    setStage()
-    draw()
-    console.log(collegeBuilt)
-  } else {
-    alert("earn more wisdom")
-  }
-  setMeaning()
-}
-
-function orbital() {
-  if (wisdom >= orbitalCost) {
-    wisdom -= orbitalCost
-    orbitalCost *= 2
-    orbitalsBuilt++
-    people += 100
-    setStage()
-    draw()
-  } else {
-    alert("earn more wisdom")
-  }
-  setMeaning()
-}
-
-function mars() {
-  if (wisdom >= marsCost) {
-    wisdom -= marsCost
-    marsCost *= 2
-    marsBuilt++
-    people += 300
-    setStage()
-    draw()
-  } else {
-    alert("earn more wisdom")
-  }
-  setMeaning()
-}
-
-
-function dyson() {
-  if (wisdom >= dysonCost) {
-    wisdom -= dysonCost
-    dysonCost *= 3
-    dysonBuilt++
-    auto += 1000
-    setStage()
-    draw()
-  } else {
-    alert("earn more wisdom")
-  }
-  setMeaning()
-}
-
-function ftl() {
-  if (wisdom >= ftlCost) {
-    wisdom -= ftlCost
-    ftlCost *= 3
-    ftlBuilt++
-    auto += 2000
-    setStage()
-    draw()
-  } else {
-    alert("earn more wisdom")
-  }
-  setMeaning()
-}
-
-
-// Changes the progress of civilization depending on how many people are educated
-
-function setStage() {
-  if (people == 1) {
-    stage = "Alone"
-  } else if (people == 2) {
-    stage = "Partnered"
-  } else if (people >= 3 && people <= 11) {
-    stage = "Family"
-  } else if (people >= 12 && people <= 50) {
-    stage = "Tribe"
-  } else if (people >= 51 && people <= 100) {
-    stage = "Town"
-  } else if (people >= 101 && people <= 500) {
-    stage = "City"
-  } else if (people >= 501 && people <= 1000) {
-    stage = "Government"
-  } else if (people >= 1000 && people <= 2000) {
-    stage = "Space Faring"
-  }
-  setMeaning()
-  draw()
 }
 
 // Changes meaning of life depending on how many people are educated
@@ -249,6 +91,39 @@ function setMeaning() {
   draw()
 }
 
+// starts a timer 1 tick per second
+function startInterval() {
+  let tick = 1000
+  let collectionInterval = setInterval(collectAutoUpgrades, tick)
+  // call clearInterval(collectionInterval) if you want to cancel the timer 
+
+  // You could use tick as a modifier, have a purchase that reduces the tick interval for a period of time
+
+}
+
+// Changes the progress of civilization depending on how many people are educated
+function setStage() {
+  if (people == 1) {
+    stage = "Alone"
+  } else if (people == 2) {
+    stage = "Partnered"
+  } else if (people >= 3 && people <= 11) {
+    stage = "Family"
+  } else if (people >= 12 && people <= 50) {
+    stage = "Tribe"
+  } else if (people >= 51 && people <= 100) {
+    stage = "Town"
+  } else if (people >= 101 && people <= 500) {
+    stage = "City"
+  } else if (people >= 501 && people <= 1000) {
+    stage = "Government"
+  } else if (people >= 1000 && people <= 2000) {
+    stage = "Space Faring"
+  }
+  setMeaning()
+  draw()
+}
+
 // adds wisdom based on auto modifiers every second
 function collectAutoUpgrades() {
   console.log('tick');
@@ -260,14 +135,95 @@ function collectAutoUpgrades() {
   draw()
 }
 
-// starts a timer 1 tick per second
-function startInterval() {
-  let tick = 1000
-  let collectionInterval = setInterval(collectAutoUpgrades, tick)
-  // call clearInterval(collectionInterval) if you want to cancel the timer 
+// the clicker button, increases wisdom based on educated population
+function learn() {
+  if (people == 1) {
+    wisdom++
+  } else {
+    wisdom += people;
+  }
+  draw();
+  setMeaning()
+}
 
-  // You could use tick as a modifier, have a purchase that reduces the tick interval for a period of time
+// I tried writing a function to replace the purchase buttons, with parameters like requiredMoney, quantity, modifier, but I kept getting a "is declared but its value never read" error on the second parameter. Not sure why. Might have something to do with reference versus value
 
+function purchaseButton(requiredMoney, modifier) {
+  if (wisdom >= requiredMoney) {
+    wisdom -= requiredMoney
+    requiredMoney *= 2
+    modifier
+  } else {
+    alert("earn more wisdom")
+  }
+  setMeaning()
+  setStage()
+  draw()
+}
+
+function teach() {
+  purchaseButton(teachCost, people += 1);
+  peopleTaught++;
+  setMeaning()
+  setStage()
+  draw()
+}
+
+function book() {
+  purchaseButton(bookCost, people += 10);
+  booksBought++;
+  setMeaning()
+  setStage()
+  draw()
+}
+
+function library() {
+  purchaseButton(libraryCost, auto += 50);
+  libraryBuilt++;
+  setMeaning()
+  setStage()
+  draw()
+}
+
+function college() {
+  purchaseButton(collegeCost, auto += 500);
+  collegeBuilt++;
+  document.getElementById('levelTwo').classList.remove('d-none')
+  setMeaning()
+  setStage()
+  draw()
+}
+
+function orbital() {
+  purchaseButton(orbitalCost, people += 100);
+  orbitalsBuilt++;
+  setMeaning()
+  setStage()
+  draw()
+}
+
+function mars() {
+  purchaseButton(marsCost, people += 300);
+  marsBuilt++;
+  setMeaning()
+  setStage()
+  draw()
+}
+
+function dyson() {
+  purchaseButton(dysonCost, auto += 1000);
+  dysonBuilt++;
+  setMeaning()
+  setStage()
+  draw()
+}
+
+function ftl() {
+  purchaseButton(ftlCost, auto += 2000);
+  ftlBuilt++;
+  setMeaning()
+  setStage()
+  draw()
 }
 
 // Supposed to prevent users from "hacking the game" with the console. Unsure if it would work.
