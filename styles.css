@@ -39,22 +39,7 @@ a:hover {
   touch-action: manipulation;
 }
 
-#meaning {
-  font-family: 'Rampart One';
-}
 
-#wisdom {
-  font-family: 'Rampart One';
-}
-
-#people {
-  font-family: 'Rampart One';
-}
-
-#auto {
-  font-family: 'Rampart One';
-}
-
-#stage {
+.rampart {
   font-family: 'Rampart One';
 }
