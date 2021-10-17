@@ -203,7 +203,6 @@ function ftl() {
 }
 
 // Changes the progress of civilization depending on how many people are educated
-
 function setStage() {
   if (people == 1) {
     stage = "Alone"
@@ -301,7 +300,6 @@ function startInterval() {
 function consoleBlock() {
   debugger
 }
-// consoleBlock()
 
 function checkLayerTwo() {
   if (collegeBuilt >= 1) {
@@ -311,5 +309,6 @@ function checkLayerTwo() {
 
 checkLayerTwo()
 startInterval()
-draw()
 setStage()
+draw()
+// consoleBlock()
